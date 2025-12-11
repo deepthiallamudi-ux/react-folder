@@ -37,10 +37,14 @@
 
 
 import Counter from './counter.jsx';
+import FirstComponent from './FirstComponent.jsx';
 
 function App() {
   return (
+    <div>
     <Counter/>
+    <FirstComponent/> 
+    </div>  
   );
 }
 
