@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-function Components() {
+function useStatee() {
   const [name, setName] = useState("my daughter");
   const [age, setAge] = useState(5);
   const [isEmployee, setIsEmployee] = useState(false);

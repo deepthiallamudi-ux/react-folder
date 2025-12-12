@@ -1,4 +1,4 @@
-// import Student from "./student";
+// import Student from "./props.jsx";
 // function App() {
 //   return (
 //     <div className="App">
@@ -15,11 +15,24 @@
 // //shared components
 // //parent to child data flow
 
-import Components from "./assets/components";
+// import Components from "./useState.jsx";
+// function App() {
+//   return (
+//     <div className="App">
+//       <Components />
+//     </div>
+//   );
+// }
+// export default App;
+import Styling from "./styling.jsx";
+import Card from "./card.jsx";
+import List from "./list.jsx";
 function App() {
   return (
     <div className="App">
-      <Components />
+      <Styling />
+      <Card />
+      <List />
     </div>
   );
 }
