@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-function useStatee() {
+function useState() {
   const [name, setName] = useState("my daughter");
   const [age, setAge] = useState(5);
   const [isEmployee, setIsEmployee] = useState(false);
@@ -38,4 +38,4 @@ setAge(age+1);
         </div>
     );
 }       
-export default Components;
+export default useState;

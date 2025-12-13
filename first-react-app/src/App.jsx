@@ -15,25 +15,33 @@
 // //shared components
 // //parent to child data flow
 
-// import Components from "./useState.jsx";
+// import useState from "./useState.jsx";
 // function App() {
 //   return (
 //     <div className="App">
-//       <Components />
+//       <useState />
 //     </div>
 //   );
 // }
 // export default App;
-import Styling from "./styling.jsx";
-import Card from "./card.jsx";
-import List from "./list.jsx";
+// import Styling from "./styling.jsx";
+// import Card from "./card.jsx";
+// import List from "./list.jsx";
+// import Todo from "./todo.jsx";
+// function App() {
+//   return (
+//     <div className="App">
+//       <Styling />
+//       <Card />
+//       <List />
+//       <Todo />
+//     </div>
+//   );
+// }
+// export default App;
+
+import UseEffects from "./useEffect.jsx";
 function App() {
-  return (
-    <div className="App">
-      <Styling />
-      <Card />
-      <List />
-    </div>
-  );
+  return (<UseEffects />);
 }
 export default App;
