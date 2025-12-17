@@ -1,16 +1,30 @@
 import React, {useState} from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import About from "./About";
+import Login from "./Login";
+import NotFound from "./notFound";
 
 function App() {
-  const [page, setPage] = useState("Home");
+  // const [page, setPage] = useState("Home");
   return(
-    <div>
-      <button onClick={() => setPage("Home")}>Home</button>
-      <button onClick={() => setPage("About")}>About</button>
-      <button onClick={() => setPage("Login")}>Login</button>
-      {page === "Home" && <h1>Welcome to the Home Page</h1>}
-      {page === "About" && <h1>Welcome to the About Page</h1>}
-      {page === "Login" && <h1>Welcome to the Login Page</h1>}
-      </div>
+    // <div>
+    //   <button onClick={() => setPage("Home")}>Home</button>
+    //   <button onClick={() => setPage("About")}>About</button>
+    //   <button onClick={() => setPage("Login")}>Login</button>
+    //   {page === "Home" && <h1>Welcome to the Home Page</h1>}
+    //   {page === "About" && <h1>Welcome to the About Page</h1>}
+    //   {page === "Login" && <h1>Welcome to the Login Page</h1>}
+    //   </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    </BrowserRouter>
+
   )
 }
 export default App;
@@ -20,3 +34,6 @@ export default App;
 // In this example, we have three buttons: Home, About, and Login. When a button is clicked, the state variable 'page' is updated to reflect the selected page. The content displayed below the buttons changes based on the value of 'page', allowing users to navigate between different sections of the app without a full page reload.
 
 // routing is the process of determining which content to display based on user interactions or URL changes. it is used when building single-page applications (SPAs) to manage navigation between different views or components without reloading the entire page.
+// <routes> its a container for all the <route> components. it defines the routing structure of the application.
+
+// <route> it defines a single route within the application. it specifies the path and the component to be rendered when that path is accessed. 
