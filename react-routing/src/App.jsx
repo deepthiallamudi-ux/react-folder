@@ -1,0 +1,22 @@
+import React, {useState} from "react";
+
+function App() {
+  const [page, setPage] = useState("Home");
+  return(
+    <div>
+      <button onClick={() => setPage("Home")}>Home</button>
+      <button onClick={() => setPage("About")}>About</button>
+      <button onClick={() => setPage("Login")}>Login</button>
+      {page === "Home" && <h1>Welcome to the Home Page</h1>}
+      {page === "About" && <h1>Welcome to the About Page</h1>}
+      {page === "Login" && <h1>Welcome to the Login Page</h1>}
+      </div>
+  )
+}
+export default App;
+
+// single page application means that the page does not reload when we navigate between different sections of the app. Instead, the content is dynamically updated based on user interactions, such as clicking buttons or links. In this example, clicking the buttons updates the state variable 'page', which in turn changes the displayed content without reloading the entire page.
+
+// In this example, we have three buttons: Home, About, and Login. When a button is clicked, the state variable 'page' is updated to reflect the selected page. The content displayed below the buttons changes based on the value of 'page', allowing users to navigate between different sections of the app without a full page reload.
+
+// routing is the process of determining which content to display based on user interactions or URL changes. it is used when building single-page applications (SPAs) to manage navigation between different views or components without reloading the entire page.

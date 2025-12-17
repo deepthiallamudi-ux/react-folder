@@ -40,8 +40,39 @@
 // }
 // export default App;
 
-import UseEffects from "./useEffect.jsx";
+// import Cleanup from "./cleanup.jsx";
+// import Prop from "./propdrillong.jsx";
+// import UseEffects from "./useEffect.jsx";
+// import UseRef from "./useref.jsx";
+
+function Parent() {
+  const msg = "Hello from Parent";
+  return <div>
+<A msg={msg} />
+  </div>;
+}
+function A({msg}) {
+  return <div>
+    <B msg={msg} />
+  </div>;
+}
+function B({msg}) {
+  return <C msg={msg} />;
+}
+function C({msg}) {
+  return <p>msg={msg}</p>;
+}
+
+
 function App() {
-  return (<UseEffects />);
+  return (
+    <>
+  {/* <UseEffects />
+    <Cleanup/> */}
+    {/* <UseRef/> */}
+    <Parent/>
+    </>
+  );
+
 }
 export default App;

@@ -36,6 +36,7 @@
 function app(){
   return(
     <div>
+      <IterateFetch/>
       <Toggle/>
       <Colorchange/>
     </div>
@@ -44,3 +45,4 @@ function app(){
 export default app;
 import Toggle from './toggle.jsx';
 import Colorchange from './colorchange.jsx';
+import IterateFetch from './iteration&Fetch.jsx';
