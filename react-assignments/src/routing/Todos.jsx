@@ -16,12 +16,10 @@ function Todos() {
     // useEffect runs after component mounts (first render)
     // It's used here to fetch data from API when component loads
     useEffect(() => {
-        // Fetch todos from JSONPlaceholder API
+    
         fetch('https://jsonplaceholder.typicode.com/todos')
-            // Convert response to JSON format
             .then(response => response.json())
             .then(data => {
-                // Get only first 10 todos from the array
                 // setTodos() updates the todos state and triggers re-render
                 setTodos(data.slice(0, 10));
                 // setLoading(false) updates loading state and triggers re-render to hide loading
@@ -29,14 +27,12 @@ function Todos() {
             })
             .catch(error => {
                 console.error('Error fetching todos:', error);
-                // Even if error occurs, stop showing loading
                 setLoading(false);
             });
     }, []); // Empty dependency array means this effect runs only once when component mounts
 
     return (
         <>
-            {/* Navigation links */}
             <nav>
                 <ul>
                     <li>

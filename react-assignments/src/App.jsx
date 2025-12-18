@@ -8,7 +8,8 @@ import Todos from './routing/Todos.jsx';
 import NotFound from './routing/notFound.jsx';
 // import Toggle from './toggle.jsx';
 // import Colorchange from './colorchange.jsx';
-// import IterateFetch from './iteration&Fetch.jsx';
+//  import IterateFetch from './iteration&Fetch.jsx';
+ import UserData from './useData.jsx';
 // function app(){
 //   return(
 //     <div>
@@ -21,14 +22,18 @@ import NotFound from './routing/notFound.jsx';
 
 function App() {
   return(
-    <BrowserRouter>
+    <>
+    {/* <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/todos' element={<Todos/>}/>
       <Route path='*' element={<NotFound/>}/>
     </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
+    {/* <IterateFetch/> */}
+<UserData/>
+    </>
   ) 
 }
 
