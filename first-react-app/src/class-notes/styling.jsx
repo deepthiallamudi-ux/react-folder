@@ -3,7 +3,7 @@
 //3.module/ modular styling
 import React from "react";
 
-// import "./try.css";  // global styling. 
+import "./try.css";  // global styling. 
 
 // it is done using external css files which are imported in the component file.it is applied to the entire app. used when u want to apply same styles across multiple components. disadvantage is that it can leak styles to other components unintentionally.it means if u have 2 components with same class name they will have same styles which may not be desired.
 

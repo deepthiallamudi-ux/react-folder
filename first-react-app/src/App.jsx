@@ -10,40 +10,21 @@
 //   );
 // }
 
+
 // export default App;
 // // read only properties
 // //shared components
 // //parent to child data flow
 
-// import useState from "./useState.jsx";
-// function App() {
-//   return (
-//     <div className="App">
-//       <useState />
-//     </div>
-//   );
-// }
-// export default App;
-// import Styling from "./styling.jsx";
-// import Card from "./card.jsx";
-// import List from "./list.jsx";
-// import Todo from "./todo.jsx";
-// function App() {
-//   return (
-//     <div className="App">
-//       <Styling />
-//       <Card />
-//       <List />
-//       <Todo />
-//     </div>
-//   );
-// }
-// export default App;
-
-// import Cleanup from "./cleanup.jsx";
-// import Prop from "./propdrillong.jsx";
-// import UseEffects from "./useEffect.jsx";
-// import UseRef from "./useref.jsx";
+import UseStateEx from "./class-notes/useState.jsx";
+import Styling from "./class-notes/styling.jsx";
+import Card from "./class-notes/card.jsx";
+import List from "./class-notes/list.jsx";
+import Todo from "./class-notes/todo.jsx";
+import Cleanup from "./class-notes/cleanup.jsx";
+import UseEffects from "./class-notes/useEffect.jsx";
+import UseRef from "./class-notes/useref.jsx";
+import ComponentA from './class-notes/propdrill/ComponentA.jsx';
 
 function Parent() {
   const msg = "Hello from Parent";
@@ -67,10 +48,18 @@ function C({msg}) {
 function App() {
   return (
     <>
-  {/* <UseEffects />
-    <Cleanup/> */}
-    {/* <UseRef/> */}
-    <Parent/>
+     <div className="App">
+      {/* <Styling />
+       <Card />
+       <List />
+       <Todo />
+  <UseEffects />
+    <Cleanup/> 
+    <UseRef/>
+    <Parent/> */}
+    <ComponentA />
+     <UseStateEx />
+     </div>
     </>
   );
 

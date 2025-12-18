@@ -1,5 +1,5 @@
 
-import React from 'react';  
+ import React from 'react';  
 // import {Link} from 'react-router-dom';
 // import {Routes, Route, BrowserRouter} from 'react-router-dom';
 // import Home from './routing/Home.jsx';
@@ -9,15 +9,10 @@ import React from 'react';
 // import Toggle from './toggle.jsx';
 // import Colorchange from './colorchange.jsx';
 //  import IterateFetch from './iteration&Fetch.jsx';
- import UserData from './useData.jsx';
-// function app(){
-//   return(
-//     <div>
-//       <IterateFetch/>
+//  import Counter from './counter.jsx';
+// import FirstComponent from './FirstComponent.jsx';
+//  import UserData from './useData.jsx';
 
-//     </div>
-//   )
-// }
 
 function App() {
   return(
@@ -32,8 +27,10 @@ function App() {
       <Route path='*' element={<NotFound/>}/>
     </Routes>
     </BrowserRouter>
-     <IterateFetch/> */}
-<UserData/>
+     <IterateFetch/> 
+ <Counter/>
+    <FirstComponent/> 
+<UserData/> */}
 
     </>
   ) 
