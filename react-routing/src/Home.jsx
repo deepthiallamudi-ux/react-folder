@@ -14,8 +14,11 @@ function Home() {
         <Link to="/about">About</Link>      
         </li>
         <li>
-        <Link to="/login">Login</Link>      
-        </li>
+        <Link to="/login">Login</Link>  
+         </li>
+                     <li>
+                       <Link to="/user">User</Link>       
+                     </li>
         </ul>
     </nav>
        <div>

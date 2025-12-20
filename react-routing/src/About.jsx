@@ -14,7 +14,10 @@ function About() {
             <Link to="/about">About</Link>      
             </li>
             <li>
-            <Link to="/login">Login</Link>      
+            <Link to="/login">Login</Link> 
+            </li>
+            <li>
+              <Link to="/user">User</Link>       
             </li>
             </ul>
         </nav>

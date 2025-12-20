@@ -4,6 +4,7 @@ import Home from "./Home";
 import About from "./About";
 import Login from "./Login";
 import NotFound from "./notFound";
+import User from "./use.jsx"; 
 
 function App() {
   // const [page, setPage] = useState("Home");
@@ -22,6 +23,8 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/user" element={<User />} />
+      <Route path="/user/:id" element={<User />} />
     </Routes>
     </BrowserRouter>
 
@@ -37,3 +40,5 @@ export default App;
 // <routes> its a container for all the <route> components. it defines the routing structure of the application.
 
 // <route> it defines a single route within the application. it specifies the path and the component to be rendered when that path is accessed. 
+
+// protected route

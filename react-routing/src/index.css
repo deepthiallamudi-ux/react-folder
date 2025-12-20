@@ -1,6 +1,9 @@
 nav{
   background-color: limegreen;
   padding: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
 
 }
 ul{
