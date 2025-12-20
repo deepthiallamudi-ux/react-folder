@@ -2,7 +2,7 @@ import React from "react";
 import { Link , useParams} from "react-router-dom";
 function User() {
     const {id}=useParams();
-    // useParams is a hook provided by react-router-dom that allows you to access the parameters of the current route. In this case, we are using it to extract the id parameter from the URL.
+    // useParams is a hook provided by react-router-dom that allows you to access the parameters of the current route. for example if you have a route defined as /user/:id, you can use useParams to retrieve the value of id when the route is accessed.In this case, we are using it to extract the id parameter from the URL.
     return (
         <div>
             <nav>

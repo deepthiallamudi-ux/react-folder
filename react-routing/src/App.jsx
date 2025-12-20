@@ -15,6 +15,7 @@ function App() {
     //   <button onClick={() => setPage("Login")}>Login</button>
     //   {page === "Home" && <h1>Welcome to the Home Page</h1>}
     //   {page === "About" && <h1>Welcome to the About Page</h1>}
+    // above line of code means if page is equal to "About" then only render the h1 tag
     //   {page === "Login" && <h1>Welcome to the Login Page</h1>}
     //   </div>
     <BrowserRouter>
@@ -41,4 +42,4 @@ export default App;
 
 // <route> it defines a single route within the application. it specifies the path and the component to be rendered when that path is accessed. 
 
-// protected route
+// protected route means that certain routes or pages within an application are restricted and can only be accessed by authorized users. typically, this involves checking if a user is authenticated (logged in) before allowing access to specific routes. if the user is not authenticated, they are usually redirected to a login page or shown an error message. protected routes are commonly used in applications that require user authentication to ensure that sensitive information or functionalities are only accessible to authorized users.
