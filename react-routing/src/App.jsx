@@ -1,10 +1,15 @@
 import React, {useState} from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
-import Login from "./Login";
-import NotFound from "./notFound";
-import User from "./use.jsx"; 
+// import Home from "./Home";
+// import About from "./About";
+// import Login from "./Login";
+// import NotFound from "./notFound";
+// import User from "./use.jsx"; 
+import Dashboard from "./routing2/dashboard.jsx";
+import Login from "./routing2/login.jsx";
+import { isAuthenticated } from "./auth.jsx";
+import Home from "./routing2/login.jsx";
+import ProtectedRoute from "./routing2/protectRoute.jsx";
 
 function App() {
   // const [page, setPage] = useState("Home");
@@ -18,17 +23,35 @@ function App() {
     // above line of code means if page is equal to "About" then only render the h1 tag
     //   {page === "Login" && <h1>Welcome to the Login Page</h1>}
     //   </div>
+    // <BrowserRouter>
+    // <Routes>
+    //   <Route path="/" element={<Home />} />
+    //   <Route path="/about" element={<About />} />
+    //   <Route path="/login" element={<Login />} />
+    //   <Route path="*" element={<NotFound />} />
+    //   <Route path="/user" element={<User />} />
+    //   <Route path="/user/:id" element={<User />} />
+    // </Routes>
+    // </BrowserRouter>
+
+
     <BrowserRouter>
+    <nav>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/login">Login</Link></li>
+      <li><Link to="/dashboard">Dashboard</Link></li>
+    </nav>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
       <Route path="/login" element={<Login />} />
-      <Route path="*" element={<NotFound />} />
-      <Route path="/user" element={<User />} />
-      <Route path="/user/:id" element={<User />} />
+      <Route path="/dashboard" element={
+        // isAuthenticated() ? <Dashboard /> : <Login />
+        <ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>
+      } />
     </Routes>
-    </BrowserRouter>
-
+</BrowserRouter>
   )
 }
 export default App;
