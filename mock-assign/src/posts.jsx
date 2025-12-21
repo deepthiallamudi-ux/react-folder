@@ -1,56 +1,74 @@
-import React,{useState,useEffect, useContext} from "react";
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
-function Posts({ theme, toggleTheme }) {
-const [posts, setPosts] = useState([]);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState(null);
+function Posts(props) {
+  const theme = props.theme;
+  const toggleTheme = props.toggleTheme;
 
-useEffect(() => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
-    .then(data => {
-        setPosts(data.slice(0,20));
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        const first20Posts = data.slice(0, 20);
+        setPosts(first20Posts);
         setLoading(false);
-    });
-}, []);
-if(loading){
+      });
+  }, []);
+
+  if (loading === true) {
     return <div>Loading...</div>;
-}
-if(error){
+  }
+
+  if (error !== null) {
     return <div>Error: {error.message}</div>;
-}
+  }
 
-const edit = () => {
+  function edit() {
     alert("Edit button clicked");
-}
+  }
 
-const deletePost = () => {
+  function deletePost() {
     alert("Delete button clicked");
+  }
+
+  let buttonText = '';
+  if (theme === 'light') {
+    buttonText = '🌙 Dark Mode';
+  } else {
+    buttonText = '☀️ Light Mode';
+  }
+
+  return (
+    <div className="posts-container">
+      <div className="posts-header">
+        <h2>Posts Component</h2>
+        <button className="theme-toggle-btn" onClick={toggleTheme}>
+          {buttonText}
+        </button>
+      </div>
+      <div className="posts-grid">
+        {posts.map(function(post) {
+          return (
+            <div key={post.id} className="post-card">
+              <h3 className="post-title">{post.title}</h3>
+              <p className="post-body">{post.body}</p>
+              <div className="post-actions">
+                <button className="btn btn-edit" onClick={edit}>Edit</button>
+                <button className="btn btn-delete" onClick={deletePost}>Delete</button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
-    return(
-        <div className="posts-container">
-            <div className="posts-header">
-                <h2>Posts Component</h2>
-                <p>This is the Posts component content.</p>
-                <button className="theme-toggle-btn" onClick={toggleTheme}>
-                    {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-                </button>
-            </div>
-             
-            <div className="posts-grid">
-                {posts.map(post => (
-                    <div key={post.id} className="post-card">
-                        <h3 className="post-title">{post.title}</h3>
-                        <p className="post-body">{post.body}</p>
-                        <div className="post-actions">
-                            <button className="btn btn-edit" onClick={edit}>Edit</button>
-                            <button className="btn btn-delete" onClick={deletePost}>Delete</button>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    )
-}
 export default Posts;

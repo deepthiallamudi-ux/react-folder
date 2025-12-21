@@ -5,11 +5,22 @@ function App() {
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
   };
 
+  let themeClass = '';
+  if (theme === 'dark') {
+    themeClass = 'dark-theme';
+  } else {
+    themeClass = 'light-theme';
+  }
+
   return (
-    <div className={`app-container ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
+    <div className={`app-container ${themeClass}`}>
       <div className="app-header">
         <h1>Welcome to Mock Assign</h1>
         <p>This is a simple React application.</p>
