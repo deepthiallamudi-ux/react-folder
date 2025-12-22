@@ -49,14 +49,14 @@ function App() {
   return (
     <>
      <div className="App">
-      {/* <Styling />
+      <Styling />
        <Card />
        <List />
        <Todo />
   <UseEffects />
     <Cleanup/> 
     <UseRef/>
-    <Parent/> */}
+    <Parent/>
     <ComponentA />
      <UseStateEx />
      </div>
