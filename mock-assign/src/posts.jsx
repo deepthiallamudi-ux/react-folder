@@ -8,7 +8,10 @@ function Posts(props) {
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
+  const [editingPost, setEditingPost] = useState(0);
+  const [editTitle, setEditTitle] = useState('');
+  const [editBody, setEditBody] = useState('');
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -26,16 +29,45 @@ function Posts(props) {
     return <div>Loading...</div>;
   }
 
-  if (error !== null) {
-    return <div>Error: {error.message}</div>;
+  if (error.length > 0) {
+    return <div>Error: {error}</div>;
   }
 
-  function edit() {
-    alert("Edit button clicked");
+  function startEdit(post) {
+    setEditingPost(post.id);
+    setEditTitle(post.title);
+    setEditBody(post.body);
   }
 
-  function deletePost() {
-    alert("Delete button clicked");
+  function cancelEdit() {
+    setEditingPost(0);
+    setEditTitle('');
+    setEditBody('');
+  }
+
+  function saveEdit(postId) {
+    const updatedPosts = posts.map(post => {
+      if (post.id === postId) {
+        return {
+          ...post,
+          title: editTitle,
+          body: editBody
+        };
+      }
+      return post;
+    });
+    
+    setPosts(updatedPosts);
+    setEditingPost(0);
+    setEditTitle('');
+    setEditBody('');
+  }
+
+  function deletePost(postId) {
+    if (window.confirm('Are you sure you want to delete this post?')) {
+      const filteredPosts = posts.filter(post => post.id !== postId);
+      setPosts(filteredPosts);
+    }
   }
 
   let buttonText = '';
@@ -57,12 +89,38 @@ function Posts(props) {
         {posts.map(function(post) {
           return (
             <div key={post.id} className="post-card">
-              <h3 className="post-title">{post.title}</h3>
-              <p className="post-body">{post.body}</p>
-              <div className="post-actions">
-                <button className="btn btn-edit" onClick={edit}>Edit</button>
-                <button className="btn btn-delete" onClick={deletePost}>Delete</button>
-              </div>
+              {editingPost === post.id ? (
+                <div className="edit-form">
+                  <input
+                    type="text"
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                    className="edit-title-input"
+                    placeholder="Post title"
+                  />
+                  <textarea
+                    value={editBody}
+                    onChange={(e) => setEditBody(e.target.value)}
+                    className="edit-body-textarea"
+                    placeholder="Post body"
+                    rows="4"
+                  />
+                 
+                </div>
+              ) : (
+                <>
+                  <h3 className="post-title">{post.title}</h3>
+                  <p className="post-body">{post.body}</p>
+                  <div className="post-actions">
+                    <button className="btn btn-edit" onClick={() => startEdit(post)}>
+                      Edit
+                    </button>
+                    <button className="btn btn-delete" onClick={() => deletePost(post.id)}>
+                      Delete
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           );
         })}

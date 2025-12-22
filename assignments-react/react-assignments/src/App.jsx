@@ -1,5 +1,5 @@
 
- import React from 'react';  
+//  import React from 'react';  
 // import {Link} from 'react-router-dom';
 // import {Routes, Route, BrowserRouter} from 'react-router-dom';
 // import Home from './routing/Home.jsx';
@@ -7,17 +7,18 @@
 // import Todos from './routing/Todos.jsx';
 // import NotFound from './routing/notFound.jsx';
 // import Toggle from './toggle.jsx';
-// import Colorchange from './colorchange.jsx';
+// import Colorchange from  './assignments/colorChange.jsx';
 //  import IterateFetch from './iteration&Fetch.jsx';
 //  import Counter from './counter.jsx';
 // import FirstComponent from './FirstComponent.jsx';
 //  import UserData from './useData.jsx';
+ import VideoPlayer from './assignments/video.jsx';
 
 
 function App() {
   return(
     <>
-    {/* <Toggle/>
+    {/* <Toggle/>ok;'
         <Colorchange/> 
     <BrowserRouter>
     <Routes>
@@ -31,6 +32,7 @@ function App() {
  <Counter/>
     <FirstComponent/> 
 <UserData/> */}
+<VideoPlayer/>
 
     </>
   ) 
