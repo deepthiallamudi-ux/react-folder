@@ -1,0 +1,13 @@
+// react memo is a higher order component. It is used to wrap a functional component to prevent unnecessary re-renders. When a component is wrapped with React.memo, React will memoize the result and only re-render the component if its props have changed. This can help improve performance by avoiding unnecessary rendering of components that have not changed.
+
+// In the provided code, the ParentComponent contains two state variables: age and salary. Each time either of these state variables is updated, the ParentComponent re-renders. Without React.memo, all child components (Title, Count, Button) would also re-render every time the ParentComponent re-renders, even if their props have not changed.
+
+// By using React.memo for the Title component we can prevent it from re-rendering when only the age or salary state changes. This is because the Title component does not depend on either of these state variables. As a result, when we increment age or salary, only the Count and Button components related to the changed state will re-render, while the Title component will remain unchanged, improving overall performance.
+
+// useCallback is a React hook that returns a memoized version of the callback function that only changes if one of the dependencies has changed. It is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders.
+ 
+// Lazy loading is a design pattern that delays the initialization of an object until the point at which it is needed. It can contribute to efficiency in the program's operation if properly and appropriately used.
+
+// lazy laoding is used to load components only when they are required, rather than loading all components at once during the initial load of the application. This can significantly improve the performance of the application, especially if it has a large number of components or if some components are rarely used.
+
+// By using lazy loading, we can reduce the initial load time of the application, decrease memory consumption, and improve overall user experience. Components that are not immediately needed can be loaded on demand, which helps to optimize resource usage and enhance the responsiveness of the application.

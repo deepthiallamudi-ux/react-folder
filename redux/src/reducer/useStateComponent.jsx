@@ -36,7 +36,7 @@ export const UseStateComponent = ()=>{
   
   // Step 2: login function
   function handleLogin() {
-    dispatch({type:"LOGIN"});
+    dispatch({type:"LOGIN"});;
            
     
     // fake login check
