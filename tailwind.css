@@ -1,4 +1,0 @@
-/* difference between css and tailwind is that Tailwind is a utility-first CSS framework .it means it provides low-level utility classes that let you build completely custom designs without leaving your HTML. instead of writing custom CSS, you use predefined classes directly in your HTML to style elements. 
-
-bootstrap is not used because it is a component-based framework that provides pre-designed components and styles, which can limit customization. difference is that Tailwind allows more flexibility and customization by using utility classes directly in HTML. 
-difference between framework and library is that a framework provides a structured foundation and dictates the architecture of your application, while a library is a collection of pre-written code that you can call upon to perform specific tasks without enforcing a particular structure. */
