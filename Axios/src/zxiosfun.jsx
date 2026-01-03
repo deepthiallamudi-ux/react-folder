@@ -1,6 +1,7 @@
 import react,{ useEffect,useState} from "react";
 import axios from "./Axios"; 
 // this is not lib but a file created to set base url
+import instance from "./Axios";
 
 
 

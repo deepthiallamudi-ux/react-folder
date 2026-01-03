@@ -23,3 +23,6 @@ function App(){
 }
 
 export default App;
+
+// /"." is used for hidden files in gitignore
+// created .env file added .env in gitignore
