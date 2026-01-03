@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Sidebar from "../components/sidebar.jsx";
 import RestaurantCard from "../components/Retsurantcard.jsx";
 import SearchFilter from "../components/searchFilter.jsx";
-import { getRestaurants, addRestaurant, deleteRestaurant } from "../utils/localStorage.js";
+import { getRestaurants, addRestaurant, deleteRestaurant, initializeSampleData } from "../utils/localStorage.js";
 
 function AdminDashboard() {
   const [restaurants, setRestaurants] = useState([]);
@@ -23,7 +23,7 @@ function AdminDashboard() {
   }, [restaurants, searchQuery, selectedType, parkingFilter]);
 
   const loadRestaurants = () => {
-    const data = getRestaurants();
+    const data = initializeSampleData();
     setRestaurants(data);
   };
 

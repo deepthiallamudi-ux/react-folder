@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import RestaurantCard from "../components/Retsurantcard.jsx";
 import SearchFilter from "../components/searchFilter.jsx";
-import { getRestaurants } from "../utils/localStorage.js";
+import { getRestaurants, initializeSampleData } from "../utils/localStorage.js";
 
 function CustomerDashboard() {
   const [restaurants, setRestaurants] = useState([]);
@@ -21,7 +21,7 @@ function CustomerDashboard() {
   }, [restaurants, searchQuery, selectedType, parkingFilter]);
 
   const loadRestaurants = () => {
-    const data = getRestaurants();
+    const data = initializeSampleData();
     setRestaurants(data);
   };
 
