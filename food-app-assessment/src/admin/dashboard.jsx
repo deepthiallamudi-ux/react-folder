@@ -1,12 +1,12 @@
-
-
-
+// import Sidebar from "../components/sidebar.jsx";
+// import Resturant from "../components/resturant.jsx";
 
 function AdminDashboard() {
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
-      {/* Add your admin dashboard components and logic here */}
+    <div className="admin-dashboard">
+      <p>Welcome to the dashboard</p>
+      {/* <Resturant/> */}
+     
     </div>
   );
 }

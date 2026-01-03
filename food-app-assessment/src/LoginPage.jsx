@@ -1,4 +1,5 @@
-import React,{useState, useNavigate} from "react";
+import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
     const[email,setEmail]=useState("");
@@ -23,11 +24,14 @@ const handleLogin=(e)=>{
     
 }
   return (
+    <div className="container">
     <div className="login-page">
       <h2>Login Page</h2>
-   <div> <input type="email" placeholder="enter email" /><br></br></div>
-   <div> <input type="password" placeholder="Password" /><br></br></div>
-    <button onClick={handleLogin}>Login</button>
+   <input type="email" placeholder="enter email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+   <br></br>
+   <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} /><br></br>
+    <button className="login-button" onClick={handleLogin}>Login</button>
+    </div>
     </div>
   );
 }
