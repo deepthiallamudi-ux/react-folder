@@ -4,51 +4,44 @@ import SearchFilter from "../components/searchFilter.jsx";
 import { getRestaurants, initializeSampleData } from "../utils/localStorage.js";
 
 function CustomerDashboard() {
-  const [restaurants, setRestaurants] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedType, setSelectedType] = useState('');
-  const [parkingFilter, setParkingFilter] = useState('');
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [search, setSearch] = useState('');
+  const [type, setType] = useState('');
+  const [parking, setParking] = useState('');
 
-  // Load restaurants from localStorage on mount
   useEffect(() => {
-    loadRestaurants();
+    loadData();
   }, []);
 
-  // Apply filters whenever restaurants or filter values change
   useEffect(() => {
-    applyFilters();
-  }, [restaurants, searchQuery, selectedType, parkingFilter]);
+    filterData();
+  }, [data, search, type, parking]);
 
-  const loadRestaurants = () => {
-    const data = initializeSampleData();
-    setRestaurants(data);
+  const loadData = () => {
+    const restaurants = initializeSampleData();
+    setData(restaurants);
   };
 
-  const applyFilters = () => {
-    let filtered = [...restaurants];
+  const filterData = () => {
+    let result = [...data];
 
-    // Search filter (name or address)
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(restaurant =>
-        restaurant.restaurantName.toLowerCase().includes(query) ||
-        restaurant.address.toLowerCase().includes(query)
+    if (search) {
+      result = result.filter(item =>
+        item.restaurantName.toLowerCase().includes(search.toLowerCase()) ||
+        item.address.toLowerCase().includes(search.toLowerCase())
       );
     }
 
-    // Type filter
-    if (selectedType) {
-      filtered = filtered.filter(restaurant => restaurant.type === selectedType);
+    if (type) {
+      result = result.filter(item => item.type === type);
     }
 
-    // Parking filter
-    if (parkingFilter !== '') {
-      const hasParking = parkingFilter === 'true';
-      filtered = filtered.filter(restaurant => restaurant.parkingLot === hasParking);
+    if (parking !== '') {
+      result = result.filter(item => item.parkingLot === (parking === 'true'));
     }
 
-    setFilteredRestaurants(filtered);
+    setFilteredData(result);
   };
 
   return (
@@ -56,22 +49,22 @@ function CustomerDashboard() {
       <h1>Customer Dashboard</h1>
       
       <SearchFilter
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        selectedType={selectedType}
-        onTypeChange={setSelectedType}
-        parkingFilter={parkingFilter}
-        onParkingChange={setParkingFilter}
+        searchQuery={search}
+        onSearchChange={setSearch}
+        selectedType={type}
+        onTypeChange={setType}
+        parkingFilter={parking}
+        onParkingChange={setParking}
       />
 
       <div>
-        {filteredRestaurants.length === 0 ? (
+        {filteredData.length === 0 ? (
           <p>No restaurants found</p>
         ) : (
-          filteredRestaurants.map(restaurant => (
+          filteredData.map(item => (
             <RestaurantCard
-              key={restaurant.restaurantID}
-              restaurant={restaurant}
+              key={item.restaurantID}
+              restaurant={item}
               onDelete={() => {}}
               isAdmin={false}
             />

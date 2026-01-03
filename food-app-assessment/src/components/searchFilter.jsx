@@ -18,12 +18,11 @@ function SearchFilter({
   parkingFilter,
   onParkingChange 
 }) {
-  const searchInputRef = useRef(null);
+  const searchInput = useRef(null);
 
-  // Auto-focus search input when component loads
   useEffect(() => {
-    if (searchInputRef.current) {
-      searchInputRef.current.focus();
+    if (searchInput.current) {
+      searchInput.current.focus();
     }
   }, []);
 
@@ -32,7 +31,7 @@ function SearchFilter({
       <div>
         <div>
           <input
-            ref={searchInputRef}
+            ref={searchInput}
             type="text"
             placeholder="Search by name or address..."
             value={searchQuery}

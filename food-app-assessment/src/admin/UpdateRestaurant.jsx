@@ -17,7 +17,7 @@ function UpdateRestaurant() {
   const navigate = useNavigate();
   const restaurant = location.state?.restaurant;
 
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     restaurantName: '',
     address: '',
     type: 'Rajasthani',
@@ -27,7 +27,7 @@ function UpdateRestaurant() {
 
   useEffect(() => {
     if (restaurant) {
-      setFormData({
+      setForm({
         restaurantName: restaurant.restaurantName,
         address: restaurant.address,
         type: restaurant.type,
@@ -35,28 +35,27 @@ function UpdateRestaurant() {
         image: restaurant.image
       });
     } else {
-      // If no restaurant data, redirect back to dashboard
       navigate('/admin/dashboard');
     }
   }, [restaurant, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
+    setForm({
+      ...form,
       [name]: name === 'parkingLot' ? value === 'true' : value
-    }));
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.restaurantName && formData.address) {
-      updateRestaurant(restaurant.restaurantID, formData);
+    if (form.restaurantName && form.address) {
+      updateRestaurant(restaurant.restaurantID, form);
       navigate('/admin/dashboard');
     }
   };
 
-  const handleCancel = () => {
+  const cancel = () => {
     navigate('/admin/dashboard');
   };
 
@@ -70,12 +69,12 @@ function UpdateRestaurant() {
         <h1>Update Restaurant</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="restaurantName">Restaurant Name *</label>
+            <label>Restaurant Name </label>
             <input
               type="text"
               id="restaurantName"
               name="restaurantName"
-              value={formData.restaurantName}
+              value={form.restaurantName}
               onChange={handleChange}
               required
               placeholder="Enter restaurant name"
@@ -83,12 +82,12 @@ function UpdateRestaurant() {
           </div>
 
           <div>
-            <label htmlFor="address">Address *</label>
+            <label>Address *</label>
             <input
               type="text"
               id="address"
               name="address"
-              value={formData.address}
+              value={form.address}
               onChange={handleChange}
               required
               placeholder="Enter address"
@@ -96,11 +95,11 @@ function UpdateRestaurant() {
           </div>
 
           <div>
-            <label htmlFor="type">Type *</label>
+            <label>Type *</label>
             <select
               id="type"
               name="type"
-              value={formData.type}
+              value={form.type}
               onChange={handleChange}
               required
             >
@@ -111,11 +110,11 @@ function UpdateRestaurant() {
           </div>
 
           <div>
-            <label htmlFor="parkingLot">Parking Availability *</label>
+            <label>Parking Availability *</label>
             <select
               id="parkingLot"
               name="parkingLot"
-              value={formData.parkingLot.toString()}
+              value={form.parkingLot.toString()}
               onChange={handleChange}
               required
             >
@@ -125,12 +124,12 @@ function UpdateRestaurant() {
           </div>
 
           <div>
-            <label htmlFor="image">Image URL</label>
+            <label>Image URL</label>
             <input
               type="url"
               id="image"
               name="image"
-              value={formData.image}
+              value={form.image}
               onChange={handleChange}
               placeholder="Enter image URL"
             />
@@ -138,7 +137,7 @@ function UpdateRestaurant() {
 
           <div>
             <button type="submit">Update Restaurant</button>
-            <button type="button" onClick={handleCancel}>Cancel</button>
+            <button type="button" onClick={cancel}>Cancel</button>
           </div>
         </form>
       </div>

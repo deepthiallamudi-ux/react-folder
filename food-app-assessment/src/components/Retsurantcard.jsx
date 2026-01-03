@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 function RestaurantCard({ restaurant, onDelete, isAdmin }) {
   const navigate = useNavigate();
 
-  const handleUpdate = () => {
+  const update = () => {
     navigate(`/admin/restaurants/update`, { state: { restaurant } });
   };
 
-  const handleDelete = () => {
-    if (window.confirm(`Are you sure you want to delete ${restaurant.restaurantName}?`)) {
+  const deleteItem = () => {
+    if (window.confirm(`Delete ${restaurant.restaurantName}?`)) {
       onDelete(restaurant.restaurantID);
     }
   };
@@ -27,8 +27,8 @@ function RestaurantCard({ restaurant, onDelete, isAdmin }) {
         
         {isAdmin && (
           <div>
-            <button onClick={handleUpdate}>Update</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={update}>Update</button>
+            <button onClick={deleteItem}>Delete</button>
           </div>
         )}
       </div>
