@@ -56,7 +56,7 @@ function Resturant() {
             <option value="yes">Parking Available</option>
           </select>
 
-          <input  placeholder="Enter Image URL" value={images} onChange={(e)=>setImages(e.target.value)}/>
+          <input  placeholder="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/7524df6e-46fa-4506-8766-eca8da47c2f1/2izhqnTaNLdenHYF.jpeg" value={images} onChange={(e)=>setImages(e.target.value)}/>
 
           <button class="btn">Add</button>
           </form>
